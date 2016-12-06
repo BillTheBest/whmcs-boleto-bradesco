@@ -18,26 +18,26 @@ class boleto {
 	
 	public function modulo_10($num) { 
 		$numtotal10 = 0;
-        $fator = 2;
-        for ($i = strlen($num); $i > 0; $i--) {
-            $numeros[$i] = substr($num,$i-1,1);
-            $temp = $numeros[$i] * $fator; 
-            $temp0=0;
-            foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
-            $parcial10[$i] = $temp0;
-            $numtotal10 += $parcial10[$i];
-            if ($fator == 2) {
-                $fator = 1;
-            } else {
-                $fator = 2;
-            }
-        }
-        $resto = $numtotal10 % 10;
-        $digito = 10 - $resto;
-        if ($resto == 0) {
-            $digito = 0;
-        }
-        return $digito;
+		$fator = 2;
+		for ($i = strlen($num); $i > 0; $i--) {
+		    $numeros[$i] = substr($num,$i-1,1);
+		    $temp = $numeros[$i] * $fator; 
+		    $temp0=0;
+		    foreach (preg_split('//',$temp,-1,PREG_SPLIT_NO_EMPTY) as $k=>$v){ $temp0+=$v; }
+		    $parcial10[$i] = $temp0;
+		    $numtotal10 += $parcial10[$i];
+		    if ($fator == 2) {
+			$fator = 1;
+		    } else {
+			$fator = 2;
+		    }
+		}
+		$resto = $numtotal10 % 10;
+		$digito = 10 - $resto;
+		if ($resto == 0) {
+		    $digito = 0;
+		}
+		return $digito;
 	}
 
 	public function modulo_11($num, $base=9, $r=0)  {
@@ -119,9 +119,9 @@ class boleto {
 			}
 		}
 		$img_html = "<img src=\"imagens/p.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
-				 	"<img src=\"imagens/b.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
-					"<img src=\"imagens/p.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
-					"<img src=\"imagens/b.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">";
+			    "<img src=\"imagens/b.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
+			    "<img src=\"imagens/p.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
+			    "<img src=\"imagens/b.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">";
 		
 	 	$texto = $valor;
 		
@@ -139,19 +139,19 @@ class boleto {
 				} else {
 					$f1 = $largo ;
 				}
-		    	$img_html .= "<img src=\"imagens/p.png\" width=\"" . $f1 . "\" height=\"" . $altura . "\" border=\"0\">";
+		    		$img_html .= "<img src=\"imagens/p.png\" width=\"" . $f1 . "\" height=\"" . $altura . "\" border=\"0\">";
 
-			    if (substr($f,$i,1) == "0") {
-			      $f2 = $fino ;
-			    }else{
-			      $f2 = $largo ;
-			    }
+			    	if (substr($f,$i,1) == "0") {
+			     	 	$f2 = $fino ;
+			    	}else{
+			      		$f2 = $largo ;
+			    	}
 				$img_html .= "<img src=\"imagens/b.png\" width=\"" . $f2 . "\" height=\"" . $altura . "\" border=\"0\">";
 			}
 		}
 		$img_html .= "<img src=\"imagens/p.png\" width=\"" . $largo . "\" height=\"" . $altura . "\" border=\"0\">".
-				 	 "<img src=\"imagens/b.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
-					 "<img src=\"imagens/p.png\" width=\"1\" height=\"" . $altura . "\" border=\"0\">";
+			     "<img src=\"imagens/b.png\" width=\"" . $fino . "\" height=\"" . $altura . "\" border=\"0\">".
+			     "<img src=\"imagens/p.png\" width=\"1\" height=\"" . $altura . "\" border=\"0\">";
 					
 		return $img_html;
 	}
@@ -161,7 +161,7 @@ class boleto {
 		$ano = $data[2];
 		$mes = $data[1];
 		$dia = $data[0];
-	    return(abs(($this->_dateToDays("1997","10","07")) - ($this->_dateToDays($ano, $mes, $dia))));
+	    	return(abs(($this->_dateToDays("1997","10","07")) - ($this->_dateToDays($ano, $mes, $dia))));
 	}
 
 	function _dateToDays($year,$month,$day) {
@@ -180,6 +180,5 @@ class boleto {
 	    }
 	    return (floor((146097 * $century)/4)+floor((1461 * $year)/4)+floor((153*$month+ 2)/5)+$day+1721119);
 	}
-	
 }
 ?>
